@@ -5,6 +5,6 @@ import Recipe from './recipe';
 const appRoot = document.getElementById('root');
 
 render(
-  <Recipe title="The Best Soup"/>,
+  <Recipe title="The Best Soup" author="john"/>,
   appRoot
 );
