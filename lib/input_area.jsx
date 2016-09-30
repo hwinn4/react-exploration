@@ -33,3 +33,7 @@ export default class InputArea extends React.Component {
     );
   }
 }
+
+InputArea.propTypes = {
+	onAddIngredient: PropTypes.func
+};
