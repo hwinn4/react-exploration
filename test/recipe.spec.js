@@ -37,4 +37,21 @@ describe('<Recipe/>', function () {
 
     expect(wrapper.find('div#outline').find('IngredientList')).to.have.length(1);
   });
+
+
+  describe('adding an ingredient', function() {
+    it('should allow adding an ingredient', function() {
+      const wrapper = shallow(<Recipe/>);
+      const addForm = wrapper.find('InputArea');
+      expect(addForm).to.have.length(1);
+    });
+
+    it('should display the ingredient on the page', function() {
+      const wrapper = mount(<Recipe/>);
+      wrapper.instance().onAddIngredient('first ingredient');
+      wrapper.instance().onAddIngredient('second ingredient');
+      
+      expect(wrapper.find('#ingredient-list').find('li')).to.have.length(2);
+    });  
+  });
 });

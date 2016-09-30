@@ -1,32 +1,23 @@
 import React, {PropTypes} from 'react';
 
 import Ingredient from './ingredient';
-import InputArea from './input_area';
 
 export default class IngredientList extends React.Component {
-
-	constructor(props) {
-		super(props);
-		this.state = {
-			ingredients: [] 
-		}
-	};
-
-	onAddIngredient(ingredient) {
-		let newIngredients = this.state.ingredients
-		newIngredients.push(ingredient);
-
-		this.setState({ingredients: newIngredients});
-	}
-
 	render() {
-	 	return (
+	 	return this.props.ingredients ? (
 	 		<div>
 		 		<ul id="ingredient-list">
-		
+					{this.props.ingredients.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
 		 		</ul>
-		 		<InputArea />
 	 		</div>
 	  )
+	  : null;
 	}
 }
+
+
+IngredientList.propTypes = {
+	ingredients: PropTypes.array
+};
