@@ -24,8 +24,8 @@ export default class Recipe extends React.Component {
     	<div id="outline">
     		<h1 id="title">{this.props.title}</h1>
     		<h2 id="author">{this.props.author}</h2>
-    		<IngredientList ingredients={this.state.ingredients}/>
         <InputArea onAddIngredient={this.onAddIngredient}/>
+        <IngredientList ingredients={this.state.ingredients}/>
     	</div>
     )
   }
