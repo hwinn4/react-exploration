@@ -8,8 +8,8 @@ import InputArea from '../lib/input_area';
 describe('InputArea', function() {
 	it('should call onSubmit when Add is clicked', () => {
     const addItemSpy = spy();
-    const wrapper = shallow(<InputArea onAddIngredient={addItemSpy}/>);
-    wrapper.setState({ingredientName: 'Fake Ingredient'});
+    const wrapper = shallow(<InputArea inputHandler={addItemSpy}/>);
+    wrapper.setState({inputValue: 'Fake Ingredient'});
     const addButton = wrapper.find('button');
 
     addButton.simulate('click');
@@ -24,7 +24,7 @@ describe('InputArea', function() {
 
     input.simulate('change', {target: { value: 'Sample Ingredient' }});
 
-    expect(wrapper.state('ingredientName')).to.equal('Sample Ingredient');
+    expect(wrapper.state('inputValue')).to.equal('Sample Ingredient');
     expect(input.prop('value')).to.equal('Sample Ingredient');
   });
 
